@@ -92,6 +92,43 @@ button:hover {
   margin: 5px 0;
 }
 
+.contact-form input, .contact-form select {
+  margin: 5px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px; 
+  font-size: 16px; 
+  box-sizing: border-box; 
+}
+
+.contact-form input::placeholder {
+  font-size: 16px;
+  color: #888; 
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; 
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .contact-form input, .contact-form select {
+    flex: 1;
+    max-width: 300px;
+  }
+}
+
+
 @media (min-width: 768px) {
   .landing-page {
     padding: 100px;
