@@ -4,7 +4,7 @@ const ContactManager = ({ contacts, addContact, deleteContact, onBack }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [type, setType] = useState("Professional"); // Default type
+  const [type, setType] = useState("Professional");
 
   const handleAddContact = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const ContactManager = ({ contacts, addContact, deleteContact, onBack }) => {
     setName("");
     setEmail("");
     setPhone("");
-    setType("Professional"); // Reset to default type
+    setType("Professional");
   };
 
   return (

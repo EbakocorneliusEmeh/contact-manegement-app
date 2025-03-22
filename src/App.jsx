@@ -8,7 +8,6 @@ const App = () => {
   const [showContactManager, setShowContactManager] = useState(false);
   const [contacts, setContacts] = useState([]);
 
-  // Load contacts from localStorage when the app starts
   useEffect(() => {
     const savedContacts = localStorage.getItem("contacts");
     if (savedContacts) {
@@ -16,7 +15,6 @@ const App = () => {
     }
   }, []);
 
-  // Save contacts to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
