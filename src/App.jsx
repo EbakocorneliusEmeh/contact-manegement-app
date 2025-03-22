@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LandingPage from "./Components/Landingpage";
-import ContactManager from "./components/ContactManager";
+import ContactManager from "./Components/Contactmanager";
 import "./App.css"
 
 
