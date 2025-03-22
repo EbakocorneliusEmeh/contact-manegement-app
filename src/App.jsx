@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./Components/Landingpage";
 import ContactManager from "./components/ContactManager";
 import "./App.css"
 
