@@ -22,7 +22,7 @@ const ContactManager = ({ contacts, addContact, deleteContact, onBack }) => {
 
   return (
     <div className="contact-manager">
-      <button onClick={onBack}>Back to Landing Page</button>
+      <button onClick={onBack}>Back to Landing Page.</button>
       <h1>Contact Manager</h1>
       <form onSubmit={handleAddContact} className="contact-form">
         <input

@@ -8,9 +8,9 @@ const LandingPage = ({ onEnter }) => {
 
   return (
     <div className="landing-page">
-      <h1>Welcome to Cornelius Contact Manager App</h1>
+      <h1>Welcome to Cornelius Contact Manager App.</h1>
       <p>Effortlessly manage all your personal and professional contacts in one place.</p>
-      <button onClick={onEnter}>Enter Contact Info</button>
+      <button onClick={onEnter}>Enter Contact Info.</button>
 
       <h2>Example Contacts</h2>
       <div className="example-contacts">
