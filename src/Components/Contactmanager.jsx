@@ -115,18 +115,10 @@ const ContactManager = ({ onBack }) => {
         {contacts.length > 0 ? (
           contacts.map((contact, index) => (
             <div key={index} className="contact-item">
-              <p>
-                <strong>Name:</strong> {contact.name}
-              </p>
-              <p>
-                <strong>Email:</strong> {contact.email}
-              </p>
-              <p>
-                <strong>Phone:</strong> {contact.phone}
-              </p>
-              <p>
-                <strong>Type:</strong> {contact.type}
-              </p>
+              <p><strong>Name:</strong> {contact.name}</p>
+              <p><strong>Email:</strong> {contact.email}</p>
+              <p><strong>Phone:</strong> {contact.phone}</p>
+              <p><strong>Type:</strong> {contact.type}</p>
               <button onClick={() => handleDelete(contact.email)}>Delete</button>
               <button onClick={() => handleEdit(contact)}>Edit</button>
             </div>
