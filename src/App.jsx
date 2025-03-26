@@ -1,40 +1,39 @@
+import React, { useState } from "react";
+import ContactManager from "./Components/Contactmanager";
+import LandingPage from "./Components/Landingpage";
+import "./App.css"
 
+const App = () => {
+  const [page, setPage] = useState("landing");
+  const [contacts, setContacts] = useState([
+    { name: "Alice Johnson", email: "alice@gmail.com", phone: "673-456-7890", type: "Professional" },
+    { name: "Ben Smith", email: "Ben@gmail.com", phone: "6987-654-310", type: "Personal" },
+    { name: "Sone Smith", email: "Sone@gmail.com.com", phone: "698-654-321", type: "Personal" },
+    { name: "Bob Smith", email: "bob@gmail.com", phone: "650424812", type: "Personal" },
+  ]);
 
+  const addContact = (contact) => {
+    setContacts([...contacts, contact]);
+  };
 
-// import React, { useState } from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import HomePage from './Pages/Homepage';
-// import AddContactPage from './Pages/ContactPage';
-// import ContactDetailsPage from './Pages/ContactDetailsPage';
-// import Navbar from './Components/Vavbar';
-// import './App.css';
+  const deleteContact = (email) => {
+    setContacts(contacts.filter((contact) => contact.email !== email));
+  };
 
-// const App = () => {
-//   const [contact, setContact] = useState(null);
+  return (
+    <div>
+      {page === "landing" ? (
+        <LandingPage onEnter={() => setPage("contactManager")} />
+      ) : (
+        <ContactManager
+          contacts={contacts}
+          addContact={addContact}
+          deleteContact={deleteContact}
+          onBack={() => setPage("landing")}
+        />
+      )}
+    </div>
+  );
+};
 
-//   return (
-//     <Router>
-//       <Navbar />
-//       <div className="app">
-//         <Routes>
-//           <Route
-//             path="/"
-//             element={<HomePage setContact={setContact} />}
-//           />
-//           <Route
-//             path="/add-contact"
-//             element={<AddContactPage setContact={setContact} />}
-//           />
-//           <Route
-//             path="/contact-details"
-//             element={<ContactDetailsPage contact={contact} />}
-//           />
-//         </Routes>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default App;
-
-
+export default App;

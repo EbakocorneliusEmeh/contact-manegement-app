@@ -1,79 +1,168 @@
-/* body {
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: skyblue;
 }
 
-.navbar {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
+h1 {
+  color: #333;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.app {
-  padding: 20px;
-  margin-top: 20px;
-}
-
-input,
-select,
 button {
-  padding: 10px;
-  margin: 15px 0;
-  width: 60%;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.button {
-  background-color: #4caf50;
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: #007bff;
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.button:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #0056b3;
 }
 
-@media (max-width: 768px) {
-  .navbar ul li {
-    display: block; 
-    margin-right: 0;
-    margin-bottom: 10px;
+.landing-page {
+  text-align: center;
+  padding: 50px;
+}
+
+.landing-page p {
+  font-size: 18px;
+  color: #555;
+}
+
+.contact-manager {
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form input {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+  text-align: left;
+  max-width: 400px;
+}
+
+.contact-item p {
+  margin: 5px 0;
+}
+
+.contact-item button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-item button:hover {
+  background-color: #c82333;
+}
+
+.contact-form select {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.contact-item p {
+  margin: 5px 0;
+}
+
+.contact-form input, .contact-form select {
+  margin: 5px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 500px; 
+  font-size: 16px; 
+  box-sizing: border-box; 
+}
+
+.contact-form input::placeholder {
+  font-size: 16px;
+  color: #888; 
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; 
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
-  .app {
-    padding: 10px;
-  }
-
-  input,
-  select,
-  button {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .button {
-    font-size: 14px;
-    padding: 12px;
+  .contact-form input, .contact-form select {
+    flex: 1;
+    max-width: 300px;
   }
 }
- */
+
+
+@media (min-width: 768px) {
+  .landing-page {
+    padding: 100px;
+  }
+
+  .contact-manager {
+    padding: 50px;
+  }
+
+  .contact-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .contact-form input {
+    flex: 1;
+    max-width: 200px;
+  }
+
+  .contact-item {
+    max-width: 600px;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-page p {
+    font-size: 20px;
+  }
+
+  .contact-manager {
+    text-align: left;
+    padding: 50px 200px;
+  }
+}
