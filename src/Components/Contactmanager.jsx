@@ -1,30 +1,90 @@
 import React, { useState } from "react";
 
-const ContactManager = ({ contacts, addContact, deleteContact, onBack }) => {
+const ContactManager = ({ onBack }) => {
+  // Initial contacts pre-loaded
+  const initialContacts = [
+    {
+      name: "Alice Johnson",
+      email: "alice.@gmail.com",
+      phone: "678-456-7890",
+      type: "Professional",
+    },
+    {
+      name: "Ben ten",
+      email: "ben@gmail.com",
+      phone: "698-654-3210",
+      type: "Personal",
+    },
+    {
+      name: "sone smith",
+      email: "aone@gmail.com",
+      phone: "678-123-4567",
+      type: "Family",
+    },
+    {
+      name: "Nash blink",
+      email: "nash@gmail.com",
+      phone: "678-123-4567",
+      type: "personal",
+    },
+    {
+      name: "kadahs pep",
+      email: "pep@gmail.com",
+      phone: "699-123-4567",
+      type: "Family",
+    },
+  ];
+
+  const [contacts, setContacts] = useState(initialContacts);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [type, setType] = useState("Professional");
+  const [editing, setEditing] = useState(null);
 
-  const handleAddContact = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email || !phone || !type) {
       alert("Please fill out all fields!");
       return;
     }
+
     const newContact = { name, email, phone, type };
-    addContact(newContact);
+
+    if (editing) {
+      setContacts(
+        contacts.map((contact) =>
+          contact.email === editing.email ? newContact : contact
+        )
+      );
+      setEditing(null);
+    } else {
+      setContacts([...contacts, newContact]);
+    }
+
     setName("");
     setEmail("");
     setPhone("");
     setType("Professional");
   };
 
+  const handleEdit = (contact) => {
+    setEditing(contact);
+    setName(contact.name);
+    setEmail(contact.email);
+    setPhone(contact.phone);
+    setType(contact.type);
+  };
+
+  const handleDelete = (email) => {
+    setContacts(contacts.filter((contact) => contact.email !== email));
+  };
+
   return (
     <div className="contact-manager">
-      <button onClick={onBack}>Back to Landing Page.</button>
+      <button onClick={onBack}>Back to Landing Page</button>
       <h1>Contact Manager</h1>
-      <form onSubmit={handleAddContact} className="contact-form">
+      <form onSubmit={handleSubmit} className="contact-form">
         <input
           type="text"
           placeholder="Name"
@@ -48,7 +108,7 @@ const ContactManager = ({ contacts, addContact, deleteContact, onBack }) => {
           <option value="Personal">Personal</option>
           <option value="Family">Family</option>
         </select>
-        <button type="submit">Add Contact</button>
+        <button type="submit">{editing ? "Update Contact" : "Add Contact"}</button>
       </form>
       <div className="contact-list">
         <h2>Your Contacts</h2>
@@ -67,7 +127,8 @@ const ContactManager = ({ contacts, addContact, deleteContact, onBack }) => {
               <p>
                 <strong>Type:</strong> {contact.type}
               </p>
-              <button onClick={() => deleteContact(contact.email)}>Delete</button>
+              <button onClick={() => handleDelete(contact.email)}>Delete</button>
+              <button onClick={() => handleEdit(contact)}>Edit</button>
             </div>
           ))
         ) : (
